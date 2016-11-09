@@ -8,11 +8,11 @@
     <script src="../robot-arm.js"></script>
     <script type="text/javascript">
         var canvas = document.getElementById("canvas");
-        robotArm.initialize(canvas);
+        var robotArm = new RobotArm(canvas);
         // Set the speed somewhat higher
         robotArm.speed = 200;
         // Load the level: exercise 1
-        robotArm.loadLevel("exercise 1");
+        robotArm.randomLevel(5);
 
         // Create a keyvalue pair for each color mapped to a column
         var colorMap = {

@@ -231,7 +231,7 @@ var RobotArm = function (canvas) {
         if (!this.isMovingUp) {
             if (local.moveArmDownAnimation(dt)) {
                 this.isMovingUp = true;
-                if (local.blocks.map[local.arm.position] && local.blocks.map[local.arm.position].length > 0) {
+                if (local.blocks.map[local.arm.position] && local.blocks.map[local.arm.position].length > 0 && !local.blocks.held) {
                     local.blocks.held = local.blocks.map[local.arm.position][local.blocks.map[local.arm.position].length - 1];
                     var row = local.blocks.map[local.arm.position];
                     var blocksInRow = row.length;
@@ -324,7 +324,7 @@ var RobotArm = function (canvas) {
      */
     self.grab = function () {
         local.animationList.push(local.grabAnimation);
-        if (local.state.blocks.map[local.state.arm.position] && local.state.blocks.map[local.state.arm.position].length > 0) {
+        if (local.state.blocks.map[local.state.arm.position] && local.state.blocks.map[local.state.arm.position].length > 0 && !local.state.blocks.held) {
             local.state.blocks.held = local.state.blocks.map[local.state.arm.position][local.state.blocks.map[local.state.arm.position].length - 1];
             var row = local.state.blocks.map[local.state.arm.position];
             var blocksInRow = row.length;
